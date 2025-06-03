@@ -9,6 +9,8 @@ class Usuario(models.Model):
     usuario_actualizacion = models.CharField(max_length=100, null=True, blank=True)
     fecha_actualizacion = models.DateTimeField(null=True, blank=True)
     estado = models.BooleanField(default=True)
+    def __str__(self):
+        return self.nombre  
 
 class Cliente(models.Model):
     nombre_contacto = models.CharField(max_length=100)
@@ -20,6 +22,9 @@ class Cliente(models.Model):
     fecha_actualizacion = models.DateTimeField(null=True, blank=True)
     estado = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.nombre  
+
 class Categoria(models.Model):
     nombre = models.CharField(max_length=100)
     usuario_creacion = models.CharField(max_length=100)
@@ -27,6 +32,9 @@ class Categoria(models.Model):
     usuario_actualizacion = models.CharField(max_length=100, null=True, blank=True)
     fecha_actualizacion = models.DateTimeField(null=True, blank=True)
     estado = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.nombre  
 
 class Producto(models.Model):
     nombre = models.CharField(max_length=100)
@@ -38,6 +46,9 @@ class Producto(models.Model):
     fecha_actualizacion = models.DateTimeField(null=True, blank=True)
     estado = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.nombre  
+
 class EstatusCotizacion(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.TextField(null=True, blank=True)
@@ -47,6 +58,9 @@ class EstatusCotizacion(models.Model):
     fecha_actualizacion = models.DateTimeField(null=True, blank=True)
     estado = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.nombre  
+
 class MetodoPago(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.TextField(null=True, blank=True)
@@ -55,6 +69,9 @@ class MetodoPago(models.Model):
     usuario_actualizacion = models.CharField(max_length=100, null=True, blank=True)
     fecha_actualizacion = models.DateTimeField(null=True, blank=True)
     estado = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.nombre  
 
 class Salon(models.Model):
     nombre = models.CharField(max_length=100)
@@ -66,6 +83,9 @@ class Salon(models.Model):
     usuario_actualizacion = models.CharField(max_length=100, null=True, blank=True)
     fecha_actualizacion = models.DateTimeField(null=True, blank=True)
     estado = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.nombre  
 
 class Cotizacion(models.Model):
     id_cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
@@ -81,6 +101,9 @@ class Cotizacion(models.Model):
     fecha_actualizacion = models.DateTimeField(null=True, blank=True)
     estado = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.nombre  
+
 class DetalleCotizacion(models.Model):
     id_cotizacion = models.ForeignKey(Cotizacion, on_delete=models.CASCADE)
     id_producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
@@ -91,3 +114,6 @@ class DetalleCotizacion(models.Model):
     usuario_actualizacion = models.CharField(max_length=100, null=True, blank=True)
     fecha_actualizacion = models.DateTimeField(null=True, blank=True)
     estado = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.nombre  
