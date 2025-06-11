@@ -5,6 +5,7 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=100)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     id_categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
+    url_imagen = models.URLField(max_length=500, null=True, blank=True)  # 🚀 campo nuevo
     usuario_creacion = models.CharField(max_length=100)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     usuario_actualizacion = models.CharField(max_length=100, null=True, blank=True)
